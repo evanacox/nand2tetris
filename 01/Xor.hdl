@@ -1,0 +1,18 @@
+/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+CHIP Xor {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+        // If both values are 1 or both are 0, both ANDs return 0.
+        // therefore the OR will return 0 as well.
+        Not(in=a, out=notA);
+        And(a=notA, b=b, out=andOne); 
+        Not(in=b, out=notB);
+        And(a=a, b=notB, out=andTwo);
+        Or(a=andOne, b=andTwo, out=out);
+}

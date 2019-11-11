@@ -1,0 +1,21 @@
+
+/**
+ * Or gate:
+ * out = 1 if (a == 1 or b == 1)
+ *       0 otherwise
+ */
+
+CHIP Or {
+    IN a, b;
+    OUT out;
+
+    PARTS:
+        // 0 if a is 1, 1 otherwise
+        Nand(a=a, b=a, out=wireOne);
+
+        // 0 if b is 1, 1 otherwise
+        Nand(a=b, b=b, out=wireTwo);
+
+        // if either one is 0, it returns 1
+        Nand(a=wireOne, b=wireTwo, out=out);
+}

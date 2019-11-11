@@ -1,0 +1,13 @@
+/**
+ * Not gate:
+ * out = not in
+ */
+
+CHIP Not {
+    IN in;
+    OUT out;
+
+    PARTS:
+        // NAND(1, 1) returns 0, NAND(0, 0) returns 1
+        Nand(a=in, b=in, out=out);
+}
