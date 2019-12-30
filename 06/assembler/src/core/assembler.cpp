@@ -104,7 +104,11 @@ void Assembler::get_symbols(std::vector<std::shared_ptr<Instruction>> &instructi
         }
 
         ++line; // line is only incremented for non-labels
+    }
 
+    // second pass, so @label-s arn't treated as seperate
+    for (const auto &instruction : instructions)
+    {
         if (instruction->type == hack::InstructionType::A_INSTR)
         {
             auto instr = reinterpret_cast<AInstruction *>(instruction.get());
