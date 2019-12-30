@@ -1,5 +1,3 @@
-// Note: Language is non-standard, simple "assembly" for the book, it's not RISC-V or x86 or whatever
-
 // Multiplies R0 and R1 and stores the result in R2.
 // (R0, R1, R2 refer to RAM[0], RAM[1], and RAM[2], respectively.)
 
@@ -9,11 +7,13 @@
 (MULTIPLY)
     @R1           // load R1
     D = M         // set D to the value at R1
+
     @END          // load END
     D;JEQ         // goto END if R1 is 0
 
-    @R0           // load R0
+    @R0           // load R0 
     D = M         // set D to value at R0
+    
     @R2           // load R2
     M = M + D     // add R0 to R2
 
