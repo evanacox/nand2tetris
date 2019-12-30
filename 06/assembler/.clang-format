@@ -1,0 +1,12 @@
+##################
+BasedOnStyle: LLVM
+##################
+
+AccessModifierOffset: -4
+AlignOperands: false
+AlwaysBreakTemplateDeclarations: "Yes"
+BreakBeforeBraces: Allman
+BreakBeforeTernaryOperators: true
+ColumnLimit: 100
+IndentWidth: 4
+IndentCaseLabels: true
